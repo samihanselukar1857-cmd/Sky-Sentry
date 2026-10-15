@@ -1,0 +1,118 @@
+{
+  "dataset": "ITU ARIS Lab. Acoustic Drone Dataset v1.0.0",
+  "protocol": "provided split_interval_disjoint.json; threshold chosen on val only; final score on test",
+  "seed": 20261015,
+  "rows": 5491,
+  "groups": 55,
+  "feature_names": [
+    "rms",
+    "log_rms",
+    "mean_abs",
+    "peak",
+    "zero_crossing_rate",
+    "multiscale_diff_log_energy_1",
+    "multiscale_diff_log_energy_2",
+    "multiscale_diff_log_energy_3",
+    "multiscale_diff_log_energy_4",
+    "multiscale_diff_log_energy_5",
+    "multiscale_diff_log_energy_6",
+    "multiscale_diff_log_energy_7",
+    "multiscale_diff_log_energy_8"
+  ],
+  "splits": {
+    "train": {
+      "n": 3844,
+      "drone": 3144,
+      "background": 700,
+      "groups": 30
+    },
+    "val": {
+      "n": 823,
+      "drone": 673,
+      "background": 150,
+      "groups": 12
+    },
+    "test": {
+      "n": 824,
+      "drone": 674,
+      "background": 150,
+      "groups": 13
+    }
+  },
+  "models": {
+    "logistic_regression": {
+      "threshold": 0.59,
+      "validation": {
+        "n": 823,
+        "threshold": 0.59,
+        "confusion": {
+          "tp": 672,
+          "fp": 22,
+          "tn": 128,
+          "fn": 1
+        },
+        "accuracy": 0.9720534629404617,
+        "balanced_accuracy": 0.9259237246161467,
+        "precision": 0.968299711815562,
+        "recall": 0.9985141158989599,
+        "specificity": 0.8533333333333334,
+        "false_positive_rate": 0.14666666666666667,
+        "false_positives_per_hour_assuming_one_second_per_background_window": 528
+      },
+      "test": {
+        "n": 824,
+        "threshold": 0.59,
+        "confusion": {
+          "tp": 670,
+          "fp": 15,
+          "tn": 135,
+          "fn": 4
+        },
+        "accuracy": 0.9769417475728155,
+        "balanced_accuracy": 0.9470326409495549,
+        "precision": 0.9781021897810219,
+        "recall": 0.9940652818991098,
+        "specificity": 0.9,
+        "false_positive_rate": 0.1,
+        "false_positives_per_hour_assuming_one_second_per_background_window": 360
+      }
+    },
+    "gaussian_naive_bayes": {
+      "threshold": 0.28,
+      "validation": {
+        "n": 823,
+        "threshold": 0.28,
+        "confusion": {
+          "tp": 658,
+          "fp": 47,
+          "tn": 103,
+          "fn": 15
+        },
+        "accuracy": 0.9246658566221142,
+        "balanced_accuracy": 0.8321892025755324,
+        "precision": 0.9333333333333333,
+        "recall": 0.9777117384843982,
+        "specificity": 0.6866666666666666,
+        "false_positive_rate": 0.31333333333333335,
+        "false_positives_per_hour_assuming_one_second_per_background_window": 1128
+      },
+      "test": {
+        "n": 824,
+        "threshold": 0.28,
+        "confusion": {
+          "tp": 653,
+          "fp": 41,
+          "tn": 109,
+          "fn": 21
+        },
+        "accuracy": 0.9247572815533981,
+        "balanced_accuracy": 0.8477546983184965,
+        "precision": 0.9409221902017291,
+        "recall": 0.9688427299703264,
+        "specificity": 0.7266666666666667,
+        "false_positive_rate": 0.2733333333333333,
+        "false_positives_per_hour_assuming_one_second_per_background_window": 983.9999999999999
+      }
+    }
+  }
+}
